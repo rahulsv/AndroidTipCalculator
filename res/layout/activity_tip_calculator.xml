@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".TipCalculator" >
+
+    <EditText
+        android:id="@+id/totalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="30dp"
+        android:hint="Enter the bill amount"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/bottomLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalAmount"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="94dp"
+        android:text="@string/bottom_label"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/btnTip10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalAmount"
+        android:layout_below="@+id/totalAmount"
+        android:layout_marginTop="91dp"
+        android:onClick="tipPercent10"
+        android:text="@string/tip_button_10" />
+
+    <Button
+        android:id="@+id/btnTip15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnTip10"
+        android:layout_alignBottom="@+id/btnTip10"
+        android:layout_centerHorizontal="true"
+        android:onClick="tipPercent15"
+        android:text="@string/tip_button_15" />
+
+    <Button
+        android:id="@+id/btnTip20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnTip15"
+        android:layout_alignBottom="@+id/btnTip15"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/btnTip15"
+        android:onClick="tipPercent20"
+        android:text="@string/tip_button_20" />
+
+    <TextView
+        android:id="@+id/labelTipValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bottomLabel"
+        android:layout_alignBottom="@+id/bottomLabel"
+        android:layout_alignLeft="@+id/btnTip15"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
