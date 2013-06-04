@@ -70,4 +70,23 @@
         android:text=" "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/labelGrandTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bottomLabel"
+        android:layout_below="@+id/labelTipValue"
+        android:layout_marginTop="22dp"
+        android:text="@string/grandTotal_label"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/labelGrandTotalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/labelGrandTotal"
+        android:layout_alignRight="@+id/btnTip20"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>

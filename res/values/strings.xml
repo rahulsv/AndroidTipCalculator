@@ -8,5 +8,6 @@
     <string name="tip_button_10">10%</string>
     <string name="tip_button_15">15%</string>
     <string name="tip_button_20">20%</string>
+    <string name="grandTotal_label">Grand Total: </string>
 
 </resources>

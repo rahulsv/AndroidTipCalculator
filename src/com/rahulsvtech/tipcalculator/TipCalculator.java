@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 public class TipCalculator extends Activity {
 
-	private Double dblTotal;
-	private Double dblTipValue;
 	private String strBlank;
 	private String strZero;
 	
@@ -21,8 +19,6 @@ public class TipCalculator extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_calculator);
         
-        dblTotal =  0.00;
-        dblTipValue =  0.00;
         strBlank="";
         strZero="0.00";
         reset();
@@ -40,8 +36,11 @@ public class TipCalculator extends Activity {
     public void reset() {
     	EditText et = (EditText) findViewById(R.id.totalAmount);
 		TextView tv = (TextView) findViewById(R.id.labelTipValue);
+		TextView tv2 = (TextView) findViewById(R.id.labelGrandTotalValue);
+		
 		et.setText((CharSequence)strBlank);
 		tv.setText((CharSequence)strZero);
+		tv2.setText((CharSequence)strZero);
     }
     
     public boolean valid(String val) {
@@ -54,7 +53,7 @@ public class TipCalculator extends Activity {
     	  }  
     	  catch(NumberFormatException nfe)  
     	  {  
-    	    return false;  
+    	    return false;   
     	  }  
     	  return true;     
     }
@@ -62,15 +61,29 @@ public class TipCalculator extends Activity {
     public void calcTip(Double tipPercent, View view) {
     	EditText et = (EditText) findViewById(R.id.totalAmount);
 		TextView tv = (TextView) findViewById(R.id.labelTipValue);
+		TextView tv2 = (TextView) findViewById(R.id.labelGrandTotalValue);
+		
+		Double dblTotal;
+		Double dblTipValue;
+		String strTipValue;
+		Double dblGrandTotal;
+		String strGrandTotal;
 
 		// Validate the input
     	String total = et.getText().toString();
     	if(valid(total)) {
-    		dblTotal = Double.parseDouble(total);
-    		dblTipValue = dblTotal*tipPercent;
     		DecimalFormat twoDForm = new DecimalFormat("#.##");
-    		String x = twoDForm.format(dblTipValue);
-    		tv.setText((CharSequence)x);
+
+    		dblTotal = Double.parseDouble(total);
+
+    		dblTipValue = dblTotal*tipPercent;
+    		strTipValue = twoDForm.format(dblTipValue);
+    		tv.setText((CharSequence)strTipValue);
+
+    		dblGrandTotal = dblTotal + dblTipValue;
+    		strGrandTotal = twoDForm.format(dblGrandTotal);
+    		tv2.setText((CharSequence)strGrandTotal);
+    		
     	}
     	else {
     			reset();
